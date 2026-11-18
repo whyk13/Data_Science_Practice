@@ -1,0 +1,12 @@
+第 2 页
+数据获取与辅助实验资源
+必做题所需数值和图片已经包含在本册；不要求学生编写新代码。辅助 Notebook 用于离线复现，不增加必做
+题。
+数据入口：https://archive.ics.uci.edu/dataset/212/vertebral%2Bcolumn；DOI：10.24432/C5K89B；许可
+CC BY 4.0。引用 Barreto 与 Neto 的数据记录。下载文件 column_2C.dat，每行 6 个连续值和一个 NO/AB 标
+签，空白分隔，无表头；源页称无缺失，本地未见?、NA 或空缺。column_3C.dat 为同一批记录的三类标签，
+不合并。
+数据获取与辅助实验：assets/pbl-svm-margin/source-data/column_2C.dat；整理表 assets/pbl-svm￾margin/vertebral-column.csv；辅助实验本 notebook/pbl-svm-margin-lab.ipynb。编号是课堂行号，不是患者
+标识。标准化、划分和模拟代码均随包提供。
+可选延伸（不计入 120 分钟）：交叉验证、bootstrap 区间、概率校准和外部验证方案将在第 10 至 12 讲进一
+步学习。本讲不把这些技术当作完成 Q1 至 Q6 的先修要求。

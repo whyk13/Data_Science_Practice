@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "checks": [
+    "13 input hashes unchanged; test labels not opened",
+    "7 validation AUC/BA values recomputed from 798 stored predictions",
+    "35 CV fold metrics, shared membership and 7 mean/SD pairs verified",
+    "5 stability summaries recomputed from 17100 predictions; shared bootstrap indices valid",
+    "A-H, filled tables, all local links, F table values and memo (387 characters; 260 Chinese) verified",
+    "6 PNGs and corresponding PDF/SVG exports structurally valid; visual checks recorded in figure-catalog.md"
+  ],
+  "memo_characters": 387,
+  "memo_chinese_characters": 260
+}

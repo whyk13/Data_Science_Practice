@@ -1,0 +1,162 @@
+{
+  "source_url": "https://archive.ics.uci.edu/static/public/145/statlog%2Bheart.zip",
+  "n_samples": 270,
+  "n_features_raw": 13,
+  "n_continuous": 6,
+  "n_binary": 3,
+  "n_categorical": 4,
+  "missing_cells": 0,
+  "class_counts": {
+    "absence": 150,
+    "presence": 120
+  },
+  "development_n": 216,
+  "locked_test_n": 54,
+  "max_abs_continuous_pair_correlation": 0.40221544605675813,
+  "continuous_pairs_abs_corr_ge_0_5": 0,
+  "continuous_feature_class_skewness": {
+    "0": {
+      "age": 0.15634530328953142,
+      "resting_bp": 0.4135270574868413,
+      "serum_cholesterol": 1.7827598052398783,
+      "max_heart_rate": -0.6774094399827345,
+      "oldpeak": 1.5562185591682673,
+      "major_vessels": 2.482648122734648
+    },
+    "1": {
+      "age": -0.5462983495419286,
+      "resting_bp": 0.8886234950366777,
+      "serum_cholesterol": 0.29618982988703596,
+      "max_heart_rate": -0.24519435245006468,
+      "oldpeak": 0.7762859348544567,
+      "major_vessels": 0.43492627100282366
+    }
+  },
+  "covariance_check": {
+    "relative_frobenius_difference": 0.5588193431299509
+  },
+  "selected_thresholds_from_development_oof": {
+    "Logistic regression": 0.14,
+    "LDA": 0.11
+  },
+  "cv_summary": [
+    {
+      "model": "Gaussian NB",
+      "auc_mean": 0.8651995614035087,
+      "auc_sd": 0.05047652107327968,
+      "sensitivity_mean": 0.7503684210526316,
+      "sensitivity_sd": 0.19479054764999465,
+      "specificity_mean": 0.73,
+      "specificity_sd": 0.21082523309975168,
+      "brier_mean": 0.22668425887758242,
+      "brier_sd": 0.08505508607747415
+    },
+    {
+      "model": "LDA",
+      "auc_mean": 0.9094320175438597,
+      "auc_sd": 0.03813511503878906,
+      "sensitivity_mean": 0.7757894736842106,
+      "sensitivity_sd": 0.0877060498409239,
+      "specificity_mean": 0.8825,
+      "specificity_sd": 0.061681143731804236,
+      "brier_mean": 0.12341136144829022,
+      "brier_sd": 0.03416929070425525
+    },
+    {
+      "model": "Logistic regression",
+      "auc_mean": 0.9022105263157895,
+      "auc_sd": 0.040987132926257046,
+      "sensitivity_mean": 0.7988421052631578,
+      "sensitivity_sd": 0.06948515675218393,
+      "specificity_mean": 0.8583333333333333,
+      "specificity_sd": 0.07241383964640738,
+      "brier_mean": 0.12785582798677625,
+      "brier_sd": 0.03473501548364743
+    },
+    {
+      "model": "Prevalence baseline",
+      "auc_mean": 0.5,
+      "auc_sd": 0.0,
+      "sensitivity_mean": 0.0,
+      "sensitivity_sd": 0.0,
+      "specificity_mean": 1.0,
+      "specificity_sd": 0.0,
+      "brier_mean": 0.24692312113774567,
+      "brier_sd": 0.0005917837849787905
+    }
+  ],
+  "locked_test": [
+    {
+      "model": "Logistic regression",
+      "roc_auc": 0.9083333333333332,
+      "pr_auc": 0.896039067894274,
+      "accuracy": 0.7037037037037037,
+      "balanced_accuracy": 0.7291666666666667,
+      "sensitivity": 0.9583333333333334,
+      "specificity": 0.5,
+      "precision": 0.6052631578947368,
+      "brier": 0.11104301915202086,
+      "log_loss": 0.4292698512277449,
+      "tn": 15,
+      "fp": 15,
+      "fn": 1,
+      "tp": 23,
+      "weighted_error_cost": 20,
+      "threshold": 0.14
+    },
+    {
+      "model": "LDA",
+      "roc_auc": 0.9055555555555557,
+      "pr_auc": 0.8964352772276953,
+      "accuracy": 0.7592592592592593,
+      "balanced_accuracy": 0.7791666666666667,
+      "sensitivity": 0.9583333333333334,
+      "specificity": 0.6,
+      "precision": 0.6571428571428571,
+      "brier": 0.11576903129223942,
+      "log_loss": 0.4379409719087868,
+      "tn": 18,
+      "fp": 12,
+      "fn": 1,
+      "tp": 23,
+      "weighted_error_cost": 17,
+      "threshold": 0.11
+    },
+    {
+      "model": "Gaussian NB",
+      "roc_auc": 0.9,
+      "pr_auc": 0.8937578430802067,
+      "accuracy": 0.8518518518518519,
+      "balanced_accuracy": 0.8500000000000001,
+      "sensitivity": 0.8333333333333334,
+      "specificity": 0.8666666666666667,
+      "precision": 0.8333333333333334,
+      "brier": 0.13024224811276466,
+      "log_loss": 0.8593679490263071,
+      "tn": 26,
+      "fp": 4,
+      "fn": 4,
+      "tp": 20,
+      "weighted_error_cost": 24,
+      "threshold": 0.5
+    },
+    {
+      "model": "Prevalence baseline",
+      "roc_auc": 0.5,
+      "pr_auc": 0.4444444444444444,
+      "accuracy": 0.5555555555555556,
+      "balanced_accuracy": 0.5,
+      "sensitivity": 0.0,
+      "specificity": 1.0,
+      "precision": 0.0,
+      "brier": 0.24691358024691368,
+      "log_loss": 0.6869615765973234,
+      "tn": 30,
+      "fp": 0,
+      "fn": 24,
+      "tp": 0,
+      "weighted_error_cost": 120,
+      "threshold": 0.5
+    }
+  ]
+}

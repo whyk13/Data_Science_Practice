@@ -1,0 +1,75 @@
+{
+  "n": 120,
+  "features": 6,
+  "labels": 2,
+  "source_sha256": "5d0b61049992b8327aa847f916f3389ec08f74b43dbb3fc5222ac07185d7c88f",
+  "source_encoding": "UTF-16 with BOM; codebook says ASCII",
+  "source_matches_course_csv": true,
+  "missing_cells": 0,
+  "temperature_range": [
+    35.5,
+    41.5
+  ],
+  "positive_counts": {
+    "bladder_inflammation": 59,
+    "nephritis": 50
+  },
+  "raw_duplicate_excess": 21,
+  "raw_rows_in_duplicate_groups": 40,
+  "raw_unique_input_profiles": 99,
+  "binary_unique_input_profiles": 9,
+  "binary_unique_labelled_profiles": 9,
+  "binary_profiles_with_conflicting_primary_label": 0,
+  "splits": {
+    "train": {
+      "n": 72,
+      "positive": 35,
+      "unique_binary_profiles": 9,
+      "binary_profiles_previously_seen_in_train": null,
+      "raw_input_profiles_previously_seen_in_train": null
+    },
+    "validation": {
+      "n": 24,
+      "positive": 12,
+      "unique_binary_profiles": 9,
+      "binary_profiles_previously_seen_in_train": 24,
+      "raw_input_profiles_previously_seen_in_train": 2
+    },
+    "test": {
+      "n": 24,
+      "positive": 12,
+      "unique_binary_profiles": 8,
+      "binary_profiles_previously_seen_in_train": 24,
+      "raw_input_profiles_previously_seen_in_train": 6
+    }
+  },
+  "test_cm": [
+    [
+      12,
+      0
+    ],
+    [
+      0,
+      12
+    ]
+  ],
+  "validation_log_loss": 0.08721381083393166,
+  "validation_average_precision": 1.0,
+  "validation_pr_auc_trapezoid": 1.0,
+  "explicit_synthetic_pr_comparison": {
+    "labels": [
+      1,
+      0,
+      1,
+      0
+    ],
+    "scores": [
+      0.9,
+      0.8,
+      0.7,
+      0.1
+    ],
+    "average_precision": 0.8333333333333333,
+    "pr_auc_trapezoid": 0.7916666666666666
+  }
+}

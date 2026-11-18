@@ -1,0 +1,16 @@
+# 临时文件与缓存
+/.tmp/
+/tmp/
+.work/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+~$*
+
+# Python 环境
+.venv/
+venv/
+
+# 本地配置
+.env
+.env.*

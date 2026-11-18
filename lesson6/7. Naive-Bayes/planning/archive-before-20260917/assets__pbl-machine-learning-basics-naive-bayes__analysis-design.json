@@ -1,0 +1,302 @@
+{
+  "study_goal": "从统计检验走向预测模型，建立定义任务、训练与评价模型、解释朴素贝叶斯及审查证据边界的共同语言。",
+  "learning_objectives": [
+    {
+      "id": "LO1",
+      "source_excerpt": "什么是数据模型；数据输入、特征、标签",
+      "observable_outcome": "说清 observation unit、feature、label，以及模型的输入和输出。"
+    },
+    {
+      "id": "LO2",
+      "source_excerpt": "什么是训练、预测和泛化；什么是损失函数；训练集、验证集、测试集",
+      "observable_outcome": "区分 training、prediction、generalization 和 loss，并说明三类数据集的职责。"
+    },
+    {
+      "id": "LO3",
+      "source_excerpt": "朴素贝叶斯：基于 Bayes theorem；特征之间条件独立",
+      "observable_outcome": "用 prior、likelihood、posterior、条件独立和 Laplace smoothing 解释并手算一次 NB 预测。"
+    },
+    {
+      "id": "LO4",
+      "source_excerpt": "模型评估：accuracy、sensitivity、specificity、precision、recall、F1、ROC-AUC、PR-AUC、calibration",
+      "observable_outcome": "从混淆矩阵计算并解释主要分类指标，并区分阈值分类、排序和概率校准。"
+    },
+    {
+      "id": "LO5",
+      "source_excerpt": "优点与局限：简单、快速、可解释；条件独立假设常常不完全成立",
+      "observable_outcome": "借助条件依赖、重复证据和概率质量审查 NB 的长处与局限。"
+    },
+    {
+      "id": "LO6",
+      "source_excerpt": "作业：解释为什么医学诊断模型不能只看 accuracy",
+      "observable_outcome": "综合 locked test、不确定性、患病率和错误代价，形成有边界的研究决定。"
+    }
+  ],
+  "decision_problem": "判断一个只报告内部 locked-test accuracy=100% 的症状分类模型，现有证据究竟支持哪一级使用。",
+  "driving_question": "对使用六项症状预测膀胱炎症的 Bernoulli 朴素贝叶斯模型，应依据错误类型、概率质量、不确定性、假设和数据来源，决定只作教学基线、继续验证还是进入前瞻性筛查试点；任一关键证据不足时必须收缩结论。",
+  "entry_type": "direct_problem",
+  "topic_type": [
+    "algorithm choice",
+    "model evaluation",
+    "validation strategy"
+  ],
+  "key_concepts": [
+    "supervised learning task and data model",
+    "training, prediction and generalization",
+    "train/validation/locked test",
+    "loss versus evaluation metric",
+    "Bayes theorem and Bernoulli naive Bayes",
+    "confusion-matrix metrics and threshold",
+    "discrimination, calibration and uncertainty",
+    "conditional independence and redundant evidence"
+  ],
+  "misconceptions": [
+    "High accuracy establishes medical usefulness",
+    "Sensitivity, specificity and precision are interchangeable",
+    "High ROC-AUC implies a correct threshold and calibrated probability",
+    "Validation and locked test can both be repeatedly used for tuning",
+    "Conditional-dependence failure means classification must fail, or perfect classification proves posterior probabilities are valid risks"
+  ],
+  "failure_modes": [
+    "Repeated tuning against validation or test results",
+    "Reporting accuracy without the confusion matrix, threshold and error costs",
+    "Double-counting correlated or duplicated symptoms",
+    "Claiming population or clinical performance from a tiny internal test",
+    "Treating expert-rule profiles as a representative patient cohort"
+  ],
+  "data_context": {
+    "dataset_name": "UCI Acute Inflammations",
+    "source": "https://archive.ics.uci.edu/dataset/184/acute+inflammations",
+    "doi": "10.24432/C5V59S",
+    "license": "CC BY 4.0",
+    "task": "binary symptom-based classification and evidence audit",
+    "observation_unit": "one expert-constructed symptom-label profile, not a real patient record",
+    "sample_count": 120,
+    "variable_roles": {
+      "features": [
+        "fever_ge_38",
+        "nausea",
+        "lumbar_pain",
+        "urine_pushing",
+        "micturition_pains",
+        "burning_urethra"
+      ],
+      "raw_continuous_feature": [
+        "temperature_c"
+      ],
+      "primary_target": [
+        "bladder_inflammation"
+      ],
+      "transfer_target": [
+        "nephritis"
+      ]
+    },
+    "grouping_fields": [],
+    "target": {
+      "name": "bladder_inflammation",
+      "positive_n": 59,
+      "negative_n": 61
+    },
+    "missing_cells": 0,
+    "provenance_boundary": "Created by a medical expert to test an expert system; not a clinical cohort."
+  },
+  "analyses": [
+    {
+      "id": "A1",
+      "objective_ids": [
+        "LO1"
+      ],
+      "question": "一行和各列分别代表什么，模型输入和输出什么？",
+      "domain": "data_structure",
+      "method": "数据字典、标签分布、缺失审计与 provenance 核对",
+      "applicability": "把生物医学描述转换为可计算的监督学习任务。",
+      "artifacts": [
+        "dataset-summary.csv"
+      ],
+      "packet": "A",
+      "interpretation_boundary": "一行是专家构造的症状—标签组合，不是真实患者记录。",
+      "notebook_ref": "cell-13-packet-a-data-audit"
+    },
+    {
+      "id": "A2",
+      "objective_ids": [
+        "LO2"
+      ],
+      "question": "train/validation/test 各负责什么；accuracy 相同时 loss 能否不同？",
+      "domain": "validation_robustness",
+      "method": "分层拆分重叠检查与同准确率概率预测的 cross-entropy 对照",
+      "applicability": "让训练、预测、泛化和 loss 形成可观察证据。",
+      "artifacts": [
+        "packet-b-split-audit.csv",
+        "packet-b-loss-contrast.csv"
+      ],
+      "packet": "B",
+      "interpretation_boundary": "内部拆分模拟未见样本，但不能证明跨人群泛化。",
+      "notebook_ref": "cells-8-17-loss-and-split"
+    },
+    {
+      "id": "A3",
+      "objective_ids": [
+        "LO3"
+      ],
+      "question": "NB 从训练数据估计了什么，posterior 如何得到？",
+      "domain": "model_behavior",
+      "method": "导出 prior/likelihood 参数并与手算 posterior 核对",
+      "applicability": "直接揭示 Bernoulli NB 的生成式概率机制。",
+      "artifacts": [
+        "packet-b-naive-bayes-parameters.csv",
+        "packet-b-posterior-handcheck.csv"
+      ],
+      "packet": "B",
+      "interpretation_boundary": "posterior 的数值依赖模型假设和训练数据。",
+      "notebook_ref": "cells-19-21-naive-bayes-handcheck"
+    },
+    {
+      "id": "A4",
+      "objective_ids": [
+        "LO4"
+      ],
+      "question": "模型犯哪类错误，阈值改变了什么，各指标分别回答什么？",
+      "domain": "model_behavior",
+      "method": "基线对照、混淆矩阵、阈值路径、ROC/PR 与概率损失",
+      "applicability": "把指标选择连接到筛查决策与错误代价。",
+      "artifacts": [
+        "packet-b-validation-metrics.csv",
+        "packet-b-validation-confusion-matrix.png",
+        "packet-b-threshold-path.csv",
+        "packet-b-threshold-tradeoff.png"
+      ],
+      "packet": "B",
+      "interpretation_boundary": "任何单一指标都不能概括用途、患病率和不确定性。",
+      "notebook_ref": "cells-24-27-validation-metrics"
+    },
+    {
+      "id": "A5",
+      "objective_ids": [
+        "LO5"
+      ],
+      "question": "相关或重复症状是否会被当成多份独立证据？",
+      "domain": "similarity_distance",
+      "method": "类别内 phi 相关、重复特征消融、Brier/log loss 与校准诊断",
+      "applicability": "以可见反例审查条件独立假设及 posterior 质量。",
+      "artifacts": [
+        "packet-c-conditional-dependence.csv",
+        "packet-c-conditional-dependence.png",
+        "packet-c-duplicate-feature-audit.csv",
+        "packet-c-duplicate-feature-shift.png",
+        "packet-c-probability-quality.csv",
+        "packet-c-calibration-audit.png"
+      ],
+      "packet": "C",
+      "interpretation_boundary": "假设不成立不等于分类必然失败；24 个 validation 样本不足以稳定估计校准。",
+      "notebook_ref": "cells-29-33-dependence-and-duplicate"
+    },
+    {
+      "id": "A6",
+      "objective_ids": [
+        "LO6"
+      ],
+      "question": "100% 点估计足以支持哪一级行动？",
+      "domain": "validation_robustness",
+      "method": "锁定测试、Wilson 区间、报告边界；测量误差模拟作为挑战",
+      "applicability": "把漂亮分数转换为带不确定性和边界的研究决定。",
+      "artifacts": [
+        "packet-d-locked-test-metrics.csv",
+        "packet-d-locked-test-confusion-matrix.png",
+        "packet-d-wilson-ci.csv",
+        "packet-d-reporting-checklist.csv",
+        "packet-d-measurement-error-stress.csv",
+        "packet-d-measurement-error-stress.png"
+      ],
+      "packet": "D",
+      "interpretation_boundary": "内部教学数据不能支持临床诊断、部署、因果或患者照护结论。",
+      "notebook_ref": "cells-37-40-locked-test-and-uncertainty"
+    },
+    {
+      "id": "A7",
+      "objective_ids": [
+        "LO4",
+        "LO6"
+      ],
+      "question": "目标标签或患病率改变后，指标解释如何变化？",
+      "domain": "sampling_representativeness",
+      "method": "nephritis 近迁移与 1% 患病率下 PPV 计算",
+      "applicability": "检验学生能否把评价逻辑迁移到相邻任务和新情境。",
+      "artifacts": [
+        "transfer-nephritis-validation-thresholds.csv",
+        "transfer-nephritis-locked-test-metrics.csv",
+        "transfer-low-prevalence-precision.csv"
+      ],
+      "packet": "D",
+      "interpretation_boundary": "同一规则数据上的近迁移仍不等于外部验证；PPV 情境是教学计算。",
+      "notebook_ref": "cells-41-42-transfer"
+    }
+  ],
+  "split_plan": {
+    "required": true,
+    "unit": "expert-constructed profile",
+    "train_n": 72,
+    "validation_n": 24,
+    "locked_test_n": 24,
+    "random_state": 7,
+    "rationale": "Generalization, threshold selection and test leakage are explicit learning objectives."
+  },
+  "packets": {
+    "A": {
+      "purpose": "Define the data object and expose provenance limits",
+      "reveals": [
+        "dataset structure",
+        "class balance",
+        "missingness",
+        "expert-rule provenance"
+      ],
+      "withholds": [
+        "model results",
+        "locked test"
+      ]
+    },
+    "B": {
+      "purpose": "Fit and inspect naive Bayes, then evaluate the first model evidence",
+      "reveals": [
+        "split audit",
+        "loss contrast",
+        "NB parameters",
+        "validation metrics",
+        "threshold trade-off"
+      ],
+      "withholds": [
+        "dependence stress",
+        "locked test"
+      ]
+    },
+    "C": {
+      "purpose": "Challenge the independence and probability-quality assumptions",
+      "reveals": [
+        "within-class dependence",
+        "duplicate-feature shift",
+        "calibration diagnostic"
+      ],
+      "withholds": [
+        "locked test and Wilson intervals"
+      ]
+    },
+    "D": {
+      "purpose": "Synthesize the frozen-test evidence, uncertainty and reporting boundary",
+      "reveals": [
+        "locked test",
+        "Wilson intervals",
+        "reporting checklist",
+        "optional stress test",
+        "transfer context"
+      ],
+      "withholds": []
+    }
+  },
+  "boundaries": [
+    "Teaching-only evidence",
+    "No clinical diagnosis or patient-care conclusion",
+    "No deployment-readiness claim",
+    "No causal inference",
+    "Synthetic measurement-error stress does not replace external validation"
+  ]
+}

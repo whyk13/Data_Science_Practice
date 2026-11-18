@@ -1,0 +1,46 @@
+{
+  "seed": 1010,
+  "dataset": "WDBC",
+  "train_n": 341,
+  "train_positive": 127,
+  "validation_n": 114,
+  "validation_positive": 43,
+  "n_features": 30,
+  "missing_cells": 0,
+  "duplicate_feature_rows_development": 0,
+  "test_labels_opened": false,
+  "cv": "5 shared stratified folds on train+validation; no tuning; scaler fit within each training fold",
+  "stability": "30 shared row-bootstrap resamples of train; algorithm seed fixed; per-record probability SD ddof=0, then mean; flip=any class change across refits",
+  "versions": {
+    "python": "3.11.3",
+    "numpy": "1.24.0",
+    "pandas": "1.5.3",
+    "sklearn": "1.2.2",
+    "matplotlib": "3.7.1"
+  },
+  "model_parameters": {
+    "single_tree": "{'ccp_alpha': 0.0, 'class_weight': None, 'criterion': 'gini', 'max_depth': 4, 'max_features': None, 'max_leaf_nodes': None, 'min_impurity_decrease': 0.0, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'random_state': 1010, 'splitter': 'best'}",
+    "bagging": "{'base_estimator': 'deprecated', 'bootstrap': True, 'bootstrap_features': False, 'estimator__ccp_alpha': 0.0, 'estimator__class_weight': None, 'estimator__criterion': 'gini', 'estimator__max_depth': None, 'estimator__max_features': None, 'estimator__max_leaf_nodes': None, 'estimator__min_impurity_decrease': 0.0, 'estimator__min_samples_leaf': 1, 'estimator__min_samples_split': 2, 'estimator__min_weight_fraction_leaf': 0.0, 'estimator__random_state': 1010, 'estimator__splitter': 'best', 'estimator': DecisionTreeClassifier(random_state=1010), 'max_features': 1.0, 'max_samples': 1.0, 'n_estimators': 100, 'n_jobs': 1, 'oob_score': False, 'random_state': 1010, 'verbose': 0, 'warm_start': False}",
+    "random_forest": "{'bootstrap': True, 'ccp_alpha': 0.0, 'class_weight': None, 'criterion': 'gini', 'max_depth': None, 'max_features': 'sqrt', 'max_leaf_nodes': None, 'max_samples': None, 'min_impurity_decrease': 0.0, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'n_estimators': 100, 'n_jobs': 1, 'oob_score': False, 'random_state': 1010, 'verbose': 0, 'warm_start': False}",
+    "adaboost": "{'algorithm': 'SAMME.R', 'base_estimator': 'deprecated', 'estimator': None, 'learning_rate': 1.0, 'n_estimators': 50, 'random_state': 1010}",
+    "gradient_boosting": "{'ccp_alpha': 0.0, 'criterion': 'friedman_mse', 'init': None, 'learning_rate': 0.1, 'loss': 'log_loss', 'max_depth': 3, 'max_features': None, 'max_leaf_nodes': None, 'min_impurity_decrease': 0.0, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'n_estimators': 100, 'n_iter_no_change': None, 'random_state': 1010, 'subsample': 1.0, 'tol': 0.0001, 'validation_fraction': 0.1, 'verbose': 0, 'warm_start': False}",
+    "logistic": "{'memory': None, 'steps': [('standardscaler', StandardScaler()), ('logisticregression', LogisticRegression(max_iter=5000, random_state=1010))], 'verbose': False, 'standardscaler': StandardScaler(), 'logisticregression': LogisticRegression(max_iter=5000, random_state=1010), 'standardscaler__copy': True, 'standardscaler__with_mean': True, 'standardscaler__with_std': True, 'logisticregression__C': 1.0, 'logisticregression__class_weight': None, 'logisticregression__dual': False, 'logisticregression__fit_intercept': True, 'logisticregression__intercept_scaling': 1, 'logisticregression__l1_ratio': None, 'logisticregression__max_iter': 5000, 'logisticregression__multi_class': 'auto', 'logisticregression__n_jobs': None, 'logisticregression__penalty': 'l2', 'logisticregression__random_state': 1010, 'logisticregression__solver': 'lbfgs', 'logisticregression__tol': 0.0001, 'logisticregression__verbose': 0, 'logisticregression__warm_start': False}",
+    "rbf_svm": "{'memory': None, 'steps': [('standardscaler', StandardScaler()), ('svc', SVC(C=1, random_state=1010))], 'verbose': False, 'standardscaler': StandardScaler(), 'svc': SVC(C=1, random_state=1010), 'standardscaler__copy': True, 'standardscaler__with_mean': True, 'standardscaler__with_std': True, 'svc__C': 1, 'svc__break_ties': False, 'svc__cache_size': 200, 'svc__class_weight': None, 'svc__coef0': 0.0, 'svc__decision_function_shape': 'ovr', 'svc__degree': 3, 'svc__gamma': 'scale', 'svc__kernel': 'rbf', 'svc__max_iter': -1, 'svc__probability': False, 'svc__random_state': 1010, 'svc__shrinking': True, 'svc__tol': 0.001, 'svc__verbose': False}"
+  },
+  "unchanged_input_sha256": {
+    "data\\README.md": "655ebd2af1a87cfa5186e7add81f7c87570d4243e4d8a59d28790b3679b8629e",
+    "data\\student\\locked-test-features.csv": "6a9dd95399f3cb8a40e11db070b9d0cf9a2c283f0c67ef62d9002270b9884d50",
+    "data\\student\\train.csv": "37214ac7e40fcbe336e3f8d0b3567bd979d22ed7d734ce592b3d171ce05608b7",
+    "data\\student\\validation.csv": "8df3d9aa50c9ab55b18ab9f2f0d87e17c12c4d1c4b8a53126644a25f2d9d809f",
+    "data-ctg\\README.md": "5c7dee656ae02b3de27b6b40e8ac1213d794a3b2a113e7a89397474b761ad40f",
+    "data-ctg\\student\\locked-test-features.csv": "fcecb4464dcb48ad1adfe15bb9a3e47025348b7480d8042eb84c4bcd6e5e6b69",
+    "data-ctg\\student\\train.csv": "322985b0949b8e6fea7194ef33a90f89887145eaea7089d045fb65b11ac7cf32",
+    "data-ctg\\student\\validation.csv": "39e2c11fca58d7102d7b1047bbcd4dd96709452bc6bfbefb67bb1609fd910115",
+    "scripts\\build_slides.mjs": "c170bee1322c6d28a04b40cb7f804f4295fa67b0522e0fbcfe204f84acf1ce1a",
+    "scripts\\demo_ensemble.py": "405d95601ddb1a614af2addfc3e34a51f9a6defe45a2313b99c922e35956e3ad",
+    "scripts\\prepare_data.py": "81f11245dd5922ccf2662beed1bf8140e8e93f38b9fa436394b6f2a1f6cb9d53",
+    "scripts\\prepare_data_ctg.py": "653a5497b9058d9fbd1af4bc2453a64a081d319e4a6e6187b015528a322ef33d",
+    "slides\\ensemble-pbl.pptx": "bb18ce7c355f23bb0536f38284501bd5b7b30ba45a2c48c940dc4fcc896c8df3"
+  },
+  "pubfig": "not available: pip found no matching distribution; matplotlib fallback"
+}

@@ -1,0 +1,344 @@
+{
+  "data": {
+    "shape": [
+      270,
+      18
+    ],
+    "target_counts": {
+      "0": 150,
+      "1": 120
+    },
+    "site_counts": {
+      "Cleveland": 87,
+      "Hungary": 85,
+      "VA Long Beach": 71,
+      "Switzerland": 27
+    },
+    "missing": {
+      "age": 0,
+      "sex": 0,
+      "cp": 0,
+      "trestbps": 22,
+      "chol": 9,
+      "fbs": 25,
+      "restecg": 0,
+      "thalach": 21,
+      "exang": 21,
+      "oldpeak": 24,
+      "slope": 103,
+      "ca": 181,
+      "thal": 151
+    },
+    "development_n": 216,
+    "development_target": {
+      "0": 120,
+      "1": 96
+    },
+    "test_n": 54,
+    "test_target": {
+      "0": 30,
+      "1": 24
+    }
+  },
+  "cv_summary": [
+    {
+      "model": "Gaussian NB",
+      "auc_mean": 0.8435054824561403,
+      "auc_sd": 0.05401683364823066,
+      "sensitivity_mean": 0.5969473684210527,
+      "sensitivity_sd": 0.14858934931948814,
+      "specificity_mean": 0.8291666666666667,
+      "specificity_sd": 0.08594957784639079,
+      "brier_mean": 0.23402952261107615,
+      "brier_sd": 0.06300963478395837
+    },
+    {
+      "model": "LDA",
+      "auc_mean": 0.8334451754385965,
+      "auc_sd": 0.048201075169908715,
+      "sensitivity_mean": 0.6844736842105263,
+      "sensitivity_sd": 0.09009584973966996,
+      "specificity_mean": 0.7908333333333333,
+      "specificity_sd": 0.09240196741826681,
+      "brier_mean": 0.17461515898670693,
+      "brier_sd": 0.030792761497314098
+    },
+    {
+      "model": "Logistic regression",
+      "auc_mean": 0.8263442982456141,
+      "auc_sd": 0.05008825781209855,
+      "sensitivity_mean": 0.6928421052631579,
+      "sensitivity_sd": 0.09057114269939993,
+      "specificity_mean": 0.7816666666666667,
+      "specificity_sd": 0.09204467514322717,
+      "brier_mean": 0.178151441674506,
+      "brier_sd": 0.03176224572437619
+    },
+    {
+      "model": "Prevalence baseline",
+      "auc_mean": 0.5,
+      "auc_sd": 0.0,
+      "sensitivity_mean": 0.0,
+      "sensitivity_sd": 0.0,
+      "specificity_mean": 1.0,
+      "specificity_sd": 0.0,
+      "brier_mean": 0.24692312113774567,
+      "brier_sd": 0.0005917837849787969
+    }
+  ],
+  "selected_thresholds": {
+    "Logistic regression": 0.12,
+    "LDA": 0.13
+  },
+  "locked_test": [
+    {
+      "model": "Logistic regression",
+      "auc": 0.8402777777777778,
+      "pr_auc": 0.8117205963476326,
+      "brier": 0.17262778425794603,
+      "log_loss": 0.5058405230035267,
+      "tn": 13,
+      "fp": 17,
+      "fn": 0,
+      "tp": 24,
+      "accuracy": 0.6851851851851852,
+      "sensitivity": 1.0,
+      "specificity": 0.43333333333333335,
+      "precision": 0.5853658536585366,
+      "weighted_cost": 17,
+      "threshold": 0.12
+    },
+    {
+      "model": "LDA",
+      "auc": 0.8416666666666667,
+      "pr_auc": 0.7980971955990118,
+      "brier": 0.17431221084242485,
+      "log_loss": 0.5251585618626432,
+      "tn": 16,
+      "fp": 14,
+      "fn": 1,
+      "tp": 23,
+      "accuracy": 0.7222222222222222,
+      "sensitivity": 0.9583333333333334,
+      "specificity": 0.5333333333333333,
+      "precision": 0.6216216216216216,
+      "weighted_cost": 19,
+      "threshold": 0.13
+    },
+    {
+      "model": "Gaussian NB",
+      "auc": 0.8541666666666666,
+      "pr_auc": 0.8066531247066253,
+      "brier": 0.18551453356071226,
+      "log_loss": 1.1877132788263707,
+      "tn": 23,
+      "fp": 7,
+      "fn": 4,
+      "tp": 20,
+      "accuracy": 0.7962962962962963,
+      "sensitivity": 0.8333333333333334,
+      "specificity": 0.7666666666666667,
+      "precision": 0.7407407407407407,
+      "weighted_cost": 27,
+      "threshold": 0.5
+    },
+    {
+      "model": "Prevalence baseline",
+      "auc": 0.5,
+      "pr_auc": 0.4444444444444444,
+      "brier": 0.24691358024691368,
+      "log_loss": 0.6869615765973234,
+      "tn": 30,
+      "fp": 0,
+      "fn": 24,
+      "tp": 0,
+      "accuracy": 0.5555555555555556,
+      "sensitivity": 0.0,
+      "specificity": 1.0,
+      "precision": null,
+      "weighted_cost": 120,
+      "threshold": 0.5
+    }
+  ],
+  "bootstrap_test_ci": {
+    "Logistic regression": {
+      "auc": [
+        0.723576388888889,
+        0.9263888888888889
+      ],
+      "brier": [
+        0.11392642367504417,
+        0.23772426991669074
+      ],
+      "weighted_cost": [
+        12.0,
+        22.024999999999977
+      ],
+      "sensitivity": [
+        1.0,
+        1.0
+      ],
+      "specificity": [
+        0.26583333333333337,
+        0.6
+      ]
+    },
+    "LDA": {
+      "auc": [
+        0.7249305555555555,
+        0.9305555555555556
+      ],
+      "brier": [
+        0.11295778282783361,
+        0.24432809204250105
+      ],
+      "weighted_cost": [
+        10.0,
+        32.0
+      ],
+      "sensitivity": [
+        0.875,
+        1.0
+      ],
+      "specificity": [
+        0.3333333333333333,
+        0.7
+      ]
+    }
+  },
+  "coefficient_example": [
+    {
+      "feature": "thal_7.0",
+      "beta": 1.4752721943732023,
+      "odds_ratio": 4.372225706211441,
+      "q025": 0.3142182878882499,
+      "q975": 4.01802868016029,
+      "sign_stability": 0.99
+    },
+    {
+      "feature": "slope_2.0",
+      "beta": 1.4357182633207648,
+      "odds_ratio": 4.202662543320427,
+      "q025": 0.2848143342288497,
+      "q975": 3.2233658415790356,
+      "sign_stability": 0.982
+    },
+    {
+      "feature": "cp_4.0",
+      "beta": 1.2499341926030516,
+      "odds_ratio": 3.490113274634851,
+      "q025": -2.0455964018943966,
+      "q975": 18.420199412534345,
+      "sign_stability": 0.774
+    },
+    {
+      "feature": "sex_1.0",
+      "beta": 0.941880019365796,
+      "odds_ratio": 2.5647987599006346,
+      "q025": -0.10535343151933955,
+      "q975": 2.47689904444967,
+      "sign_stability": 0.958
+    },
+    {
+      "feature": "fbs_1.0",
+      "beta": 0.8445690715951228,
+      "odds_ratio": 2.326974838924881,
+      "q025": -0.2981910061144063,
+      "q975": 2.246242204389243,
+      "sign_stability": 0.936
+    },
+    {
+      "feature": "ca",
+      "beta": 0.72698091342046,
+      "odds_ratio": 2.068825207209263,
+      "q025": 0.23153595276623515,
+      "q975": 1.751223859696462,
+      "sign_stability": 0.992
+    },
+    {
+      "feature": "exang_1.0",
+      "beta": 0.7091765289593175,
+      "odds_ratio": 2.0323170151883643,
+      "q025": -0.48947770576489735,
+      "q975": 2.2021877008382504,
+      "sign_stability": 0.902
+    },
+    {
+      "feature": "oldpeak",
+      "beta": 0.6825144733203079,
+      "odds_ratio": 1.9788472403551474,
+      "q025": 0.04428898470317883,
+      "q975": 1.623708480591221,
+      "sign_stability": 0.978
+    },
+    {
+      "feature": "thal_6.0",
+      "beta": 0.6233987496184088,
+      "odds_ratio": 1.8652568216960264,
+      "q025": -1.5344413451644834,
+      "q975": 22.25850520813873,
+      "sign_stability": 0.728
+    },
+    {
+      "feature": "chol",
+      "beta": -0.5596515238126655,
+      "odds_ratio": 0.5714081512921577,
+      "q025": -1.316502059919344,
+      "q975": -0.05279734892430835,
+      "sign_stability": 0.986
+    }
+  ],
+  "assumption_audit": [
+    {
+      "feature": "age",
+      "skew_absence": 0.1822023747698439,
+      "skew_presence": -0.2826037588713316,
+      "max_abs_skew": 0.2826037588713316
+    },
+    {
+      "feature": "trestbps",
+      "skew_absence": 0.8788098831596051,
+      "skew_presence": 0.5121227439398448,
+      "max_abs_skew": 0.8788098831596051
+    },
+    {
+      "feature": "chol",
+      "skew_absence": -1.4148439788548794,
+      "skew_presence": -0.6269482383244811,
+      "max_abs_skew": 1.4148439788548794
+    },
+    {
+      "feature": "thalach",
+      "skew_absence": -0.3877784955223497,
+      "skew_presence": 0.3972153317197693,
+      "max_abs_skew": 0.3972153317197693
+    },
+    {
+      "feature": "oldpeak",
+      "skew_absence": 1.8969170663314245,
+      "skew_presence": 0.7839573989364368,
+      "max_abs_skew": 1.8969170663314245
+    },
+    {
+      "feature": "ca",
+      "skew_absence": 2.3363626042252457,
+      "skew_presence": 0.31434595491400824,
+      "max_abs_skew": 2.3363626042252457
+    }
+  ],
+  "stress": {
+    "original_age_coef": 0.3271656318814456,
+    "stress_age_coef": 7.720756313548122,
+    "stress_duplicate_coef": -7.397044548280901,
+    "original_test_auc": 0.8402777777777778,
+    "stress_test_auc": 0.8444444444444444,
+    "stress_correlation": 0.9996538766313445
+  },
+  "parameter_count": {
+    "encoded_features": 18,
+    "logistic_parameters": 19,
+    "lda_means": 36,
+    "lda_covariance_unique": 171,
+    "lda_prior_independent": 1
+  }
+}

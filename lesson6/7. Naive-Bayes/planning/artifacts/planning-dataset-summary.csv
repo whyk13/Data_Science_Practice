@@ -1,0 +1,2 @@
+dataset,samples,original_features,model_features,target,positive_n,negative_n,missing_cells,split_train,split_validation,split_test
+UCI Acute Inflammations,120,6,6,bladder_inflammation,59,61,0,72,24,24

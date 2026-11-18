@@ -1,0 +1,26 @@
+{
+  "renderer": "Microsoft Word COM isolated instance; PDF exported then bundled Poppler rasterization",
+  "preferred_renderer_attempt": "render_docx.py failed: LibreOffice soffice.exe unavailable",
+  "documents": [
+    {
+      "file": "pbl-machine-learning-basics-naive-bayes-design-rationale.docx",
+      "pages": 6,
+      "pdf": "review\\render-design-rationale\\pbl-machine-learning-basics-naive-bayes-design-rationale.pdf"
+    },
+    {
+      "file": "pbl-machine-learning-basics-naive-bayes-evidence-pack.docx",
+      "pages": 7,
+      "pdf": "review\\render-evidence-pack\\pbl-machine-learning-basics-naive-bayes-evidence-pack.pdf"
+    },
+    {
+      "file": "pbl-machine-learning-basics-naive-bayes-student-worksheet.docx",
+      "pages": 25,
+      "pdf": "review\\render-student-worksheet\\pbl-machine-learning-basics-naive-bayes-student-worksheet.pdf"
+    },
+    {
+      "file": "pbl-machine-learning-basics-naive-bayes-teaching-plan-flipped-classroom.docx",
+      "pages": 10,
+      "pdf": "review\\render-teaching-plan-flipped-classroom\\pbl-machine-learning-basics-naive-bayes-teaching-plan-flipped-classroom.pdf"
+    }
+  ]
+}

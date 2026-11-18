@@ -1,0 +1,48 @@
+{
+  "date": "2026-09-18",
+  "lint_errors": 0,
+  "lint_warnings": 0,
+  "design_errors": 0,
+  "design_warnings": 0,
+  "pilot_fields": 107,
+  "pilot_answered": 107,
+  "pilot_blocking": 0,
+  "pilot_friction": 0,
+  "timing": {
+    "phase1": [
+      44.5,
+      45
+    ],
+    "phase2": [
+      125.75,
+      120
+    ],
+    "phase3": [
+      48,
+      45
+    ]
+  },
+  "executed_notebook_cells": 16,
+  "pages": {
+    "pbl-svm-margin-student-worksheet.docx": 21,
+    "pbl-svm-margin-evidence-pack.docx": 6,
+    "pbl-svm-margin-teaching-plan-flipped-classroom.docx": 4,
+    "pbl-svm-margin-design-rationale.docx": 2,
+    "01-启动与追踪表.docx": 6,
+    "02-Packet-A.docx": 2,
+    "03-Packet-B.docx": 3,
+    "04-Packet-C.docx": 4,
+    "05-Packet-D与综合.docx": 4,
+    "06-翻转课堂与入口.docx": 2
+  },
+  "renderer": "Microsoft Word + pypdfium2",
+  "hashes": {
+    "pbl-svm-margin-student-worksheet.docx": "9c2e247c754d7800e612acdd51f6b10f5f1c2cf76e5ff161a7a0ee4431d43621",
+    "pbl-svm-margin-evidence-pack.docx": "936ce78b14c892f46f09ccbaa37786a55c085feb70edc727dc12436278ca7931",
+    "pbl-svm-margin-teaching-plan-flipped-classroom.docx": "2c162fa3bc6eecdded181636931755cca1adaa5ca52eda05228a4156957aada8",
+    "pbl-svm-margin-design-rationale.docx": "c9fef38e6155122ebfeae4e7ee99c07ae77d0025244b5eb47986f1ec4a7971b7",
+    "notebook/pbl-svm-margin-lab.ipynb": "0a07384048ba384a76054fca238d32077750c6b0f0d96497f8580dfa207a6d82",
+    "review/pilot-fields.json": "72bf9006855a6c79e906d633c9968f62ea1ac85676a31d1c541057271696e466",
+    "scripts/pbl-svm-margin-build.py": "f2a42ad749df9982b976692ae3d796159033c1dd6492b89d29248dc48786a137"
+  }
+}

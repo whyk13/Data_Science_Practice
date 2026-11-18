@@ -1,0 +1,355 @@
+{
+  "source_url": "https://archive.ics.uci.edu/static/public/145/statlog%2Bheart.zip",
+  "source_archive_sha256": "04e44018af4f4b32008029fbfb1079e112d3b372bb032dd1ae361c74d7528b2c",
+  "local_matches_raw_after_target_minus_one": true,
+  "shape": [
+    270,
+    14
+  ],
+  "n_features": 13,
+  "missing_cells": 0,
+  "duplicate_full_records": 0,
+  "duplicate_feature_rows": 0,
+  "patient_linkage": "No patient ID, centre or time fields; no duplicate row does not prove patient independence.",
+  "target_counts": {
+    "0": 150,
+    "1": 120
+  },
+  "source_codebook": "This database contains 13 attributes (which have been extracted from\na larger set of 75)       \n  \n\n\nAttribute Information:\n------------------------\n      -- 1. age       \n      -- 2. sex       \n      -- 3. chest pain type  (4 values)       \n      -- 4. resting blood pressure  \n      -- 5. serum cholestoral in mg/dl      \n      -- 6. fasting blood sugar > 120 mg/dl       \n      -- 7. resting electrocardiographic results  (values 0,1,2) \n      -- 8. maximum heart rate achieved  \n      -- 9. exercise induced angina    \n      -- 10. oldpeak = ST depression induced by exercise relative to rest   \n      -- 11. the slope of the peak exercise ST segment     \n      -- 12. number of major vessels (0-3) colored by flourosopy        \n      -- 13.  thal: 3 = normal; 6 = fixed defect; 7 = reversable defect     \n\nAttributes types\n-----------------\n\nReal: 1,4,5,8,10,12\nOrdered:11,\nBinary: 2,6,9\nNominal:7,3,13\n\nVariable to be predicted\n------------------------\nAbsence (1) or presence (2) of heart disease\n\nCost Matrix\n\n\t abse  pres\nabsence\t  0\t1\npresence  5\t0\n\nwhere the rows represent the true values and the columns the predicted.\n\nNo missing values.\n\n270 observations\n",
+  "schema_discrepancies": [
+    "Old teaching dictionary labels thal as thalassemia; original codebook only supports 3 normal, 6 fixed defect, 7 reversible defect. Remove unsupported translation.",
+    "major_vessels is an observed 0-3 integer count, not a continuous measurement even if standardized for a model.",
+    "Statlog does not publish patient IDs, temporal provenance or category frequencies. Category frequencies below are local observations, not externally verified recruitment counts."
+  ],
+  "levels": {
+    "sex": {
+      "documented": [
+        0,
+        1
+      ],
+      "observed_counts": {
+        "0": 87,
+        "1": 183
+      },
+      "nonmissing_n": 270,
+      "out_of_codebook_n": 0
+    },
+    "chest_pain": {
+      "documented": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "observed_counts": {
+        "1": 20,
+        "2": 42,
+        "3": 79,
+        "4": 129
+      },
+      "nonmissing_n": 270,
+      "out_of_codebook_n": 0
+    },
+    "fasting_blood_sugar": {
+      "documented": [
+        0,
+        1
+      ],
+      "observed_counts": {
+        "0": 230,
+        "1": 40
+      },
+      "nonmissing_n": 270,
+      "out_of_codebook_n": 0
+    },
+    "resting_ecg": {
+      "documented": [
+        0,
+        1,
+        2
+      ],
+      "observed_counts": {
+        "0": 131,
+        "1": 2,
+        "2": 137
+      },
+      "nonmissing_n": 270,
+      "out_of_codebook_n": 0
+    },
+    "exercise_angina": {
+      "documented": [
+        0,
+        1
+      ],
+      "observed_counts": {
+        "0": 181,
+        "1": 89
+      },
+      "nonmissing_n": 270,
+      "out_of_codebook_n": 0
+    },
+    "st_slope": {
+      "documented": [
+        1,
+        2,
+        3
+      ],
+      "observed_counts": {
+        "1": 130,
+        "2": 122,
+        "3": 18
+      },
+      "nonmissing_n": 270,
+      "out_of_codebook_n": 0
+    },
+    "major_vessels": {
+      "documented": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "observed_counts": {
+        "0": 160,
+        "1": 58,
+        "2": 33,
+        "3": 19
+      },
+      "nonmissing_n": 270,
+      "out_of_codebook_n": 0
+    },
+    "thal": {
+      "documented": [
+        3,
+        6,
+        7
+      ],
+      "observed_counts": {
+        "3": 152,
+        "6": 14,
+        "7": 104
+      },
+      "nonmissing_n": 270,
+      "out_of_codebook_n": 0
+    },
+    "heart_disease_present": {
+      "documented": [
+        0,
+        1
+      ],
+      "observed_counts": {
+        "0": 150,
+        "1": 120
+      },
+      "nonmissing_n": 270,
+      "out_of_codebook_n": 0
+    }
+  },
+  "continuous_ranges": {
+    "age": {
+      "min": 29.0,
+      "max": 77.0,
+      "zero_n": 0
+    },
+    "resting_bp": {
+      "min": 94.0,
+      "max": 200.0,
+      "zero_n": 0
+    },
+    "serum_cholesterol": {
+      "min": 126.0,
+      "max": 564.0,
+      "zero_n": 0
+    },
+    "max_heart_rate": {
+      "min": 71.0,
+      "max": 202.0,
+      "zero_n": 0
+    },
+    "oldpeak": {
+      "min": 0.0,
+      "max": 6.2,
+      "zero_n": 85
+    }
+  },
+  "sentinel_interpretation": "No ?/NaN in source table. Zero is valid for binary fields and some measurements (e.g. oldpeak); no zero was silently recoded. Nonpositive age, blood pressure, cholesterol, maximum heart rate checked separately.",
+  "impossible_nonpositive_n": {
+    "age": 0,
+    "resting_bp": 0,
+    "serum_cholesterol": 0,
+    "max_heart_rate": 0
+  },
+  "splits": {
+    "train": {
+      "n": 162,
+      "positive_n": 72
+    },
+    "validation": {
+      "n": 54,
+      "positive_n": 24
+    },
+    "test": {
+      "n": 54,
+      "positive_n": 24
+    }
+  },
+  "test_status": "Same historical teaching holdout previously inspected by author; no new untouched test claim. New exploratory runs use train/validation only.",
+  "unit_change_max_probability_difference": 2.220446049250313e-16,
+  "collinearity_train_validation_only": {
+    "training_age_correlation": 0.9995813418557159,
+    "original_age_coefficient": -0.09726379076159297,
+    "stress_age_coefficient": 4.072476780483089,
+    "stress_age_repeat_coefficient": -4.166320582900461,
+    "original_validation_auc": 0.7194444444444444,
+    "stress_validation_auc": 0.7124999999999999,
+    "synthetic_disclosure": "Additional age measurement = age + independent N(0, 0.25^2 years^2) noise; original data unchanged."
+  },
+  "validation_metrics": [
+    {
+      "模型": "Logistic（5项）",
+      "验证例数": 54,
+      "阈值": 0.5,
+      "AUC": 0.7194444444444444,
+      "TN": 24,
+      "FP": 6,
+      "FN": 13,
+      "TP": 11,
+      "敏感度": 0.4583333333333333,
+      "特异度": 0.8,
+      "Brier": 0.22116238240776903
+    },
+    {
+      "模型": "Logistic（5项）",
+      "验证例数": 54,
+      "阈值": 0.2,
+      "AUC": 0.7194444444444444,
+      "TN": 12,
+      "FP": 18,
+      "FN": 4,
+      "TP": 20,
+      "敏感度": 0.8333333333333334,
+      "特异度": 0.4,
+      "Brier": 0.22116238240776903
+    },
+    {
+      "模型": "LDA（5项）",
+      "验证例数": 54,
+      "阈值": 0.5,
+      "AUC": 0.7222222222222222,
+      "TN": 24,
+      "FP": 6,
+      "FN": 13,
+      "TP": 11,
+      "敏感度": 0.4583333333333333,
+      "特异度": 0.8,
+      "Brier": 0.22258480606425352
+    },
+    {
+      "模型": "LDA（5项）",
+      "验证例数": 54,
+      "阈值": 0.2,
+      "AUC": 0.7222222222222222,
+      "TN": 12,
+      "FP": 18,
+      "FN": 4,
+      "TP": 20,
+      "敏感度": 0.8333333333333334,
+      "特异度": 0.4,
+      "Brier": 0.22258480606425352
+    },
+    {
+      "模型": "Logistic（13项）",
+      "验证例数": 54,
+      "阈值": 0.5,
+      "AUC": 0.9097222222222222,
+      "TN": 26,
+      "FP": 4,
+      "FN": 6,
+      "TP": 18,
+      "敏感度": 0.75,
+      "特异度": 0.8666666666666667,
+      "Brier": 0.1297062408633899
+    },
+    {
+      "模型": "LDA（13项）",
+      "验证例数": 54,
+      "阈值": 0.5,
+      "AUC": 0.9166666666666667,
+      "TN": 27,
+      "FP": 3,
+      "FN": 4,
+      "TP": 20,
+      "敏感度": 0.8333333333333334,
+      "特异度": 0.9,
+      "Brier": 0.11187475149912972
+    },
+    {
+      "模型": "LDA（13项）",
+      "验证例数": 54,
+      "阈值": 0.2,
+      "AUC": 0.9166666666666667,
+      "TN": 23,
+      "FP": 7,
+      "FN": 3,
+      "TP": 21,
+      "敏感度": 0.875,
+      "特异度": 0.7666666666666667,
+      "Brier": 0.11187475149912972
+    },
+    {
+      "模型": "Logistic（13项）",
+      "验证例数": 54,
+      "阈值": 0.2,
+      "AUC": 0.9097222222222222,
+      "TN": 24,
+      "FP": 6,
+      "FN": 3,
+      "TP": 21,
+      "敏感度": 0.875,
+      "特异度": 0.8,
+      "Brier": 0.1297062408633899
+    }
+  ],
+  "coefficients": [
+    {
+      "变量": "年龄",
+      "训练均值": 54.166666666666664,
+      "训练SD": 9.283763870593559,
+      "每SD系数": -0.09726379076159297,
+      "每原单位系数": -0.010476762670545432,
+      "每SD_OR": 0.9073166328168493
+    },
+    {
+      "变量": "静息血压",
+      "训练均值": 132.37037037037038,
+      "训练SD": 17.652995719920096,
+      "每SD系数": 0.034136580612821245,
+      "每原单位系数": 0.0019337556726590403,
+      "每SD_OR": 1.0347259205778667
+    },
+    {
+      "变量": "血清胆固醇",
+      "训练均值": 247.6851851851852,
+      "训练SD": 45.4269828205174,
+      "每SD系数": 0.5625864024584973,
+      "每原单位系数": 0.012384410487513193,
+      "每SD_OR": 1.755206304548725
+    },
+    {
+      "变量": "运动最大心率",
+      "训练均值": 148.64197530864197,
+      "训练SD": 23.70696029583983,
+      "每SD系数": -0.8219411224057768,
+      "每原单位系数": -0.03467087775694354,
+      "每SD_OR": 0.4395775519801842
+    },
+    {
+      "变量": "ST 段压低",
+      "训练均值": 1.0999999999999999,
+      "训练SD": 1.1785113019775793,
+      "每SD系数": 0.7758762039391736,
+      "每原单位系数": 0.6583527901999996,
+      "每SD_OR": 2.1724948420170045
+    }
+  ]
+}

@@ -1,0 +1,186 @@
+{
+  "topic": "理解数据与机器学习准备",
+  "slug": "understanding-data",
+  "mode": "data_preprocessing_workflow",
+  "dataset": {
+    "name": "UCI Heart Disease four-site teaching table with WDBC supporting evidence",
+    "source": "UCI DOI 10.24432/C52P4X; UCI WDBC bundled in scikit-learn",
+    "task": "data readiness audit",
+    "target": "Heart Disease num; WDBC diagnosis used only as metadata for dimensionality evidence"
+  },
+  "outputs": {
+    "student_worksheet": "pbl-understanding-data-student-worksheet.docx",
+    "evidence_pack": "pbl-understanding-data-evidence-pack.docx",
+    "teaching_plan": "pbl-understanding-data-teaching-plan-flipped-classroom.docx",
+    "design_rationale": "pbl-understanding-data-design-rationale.docx",
+    "notebook": "notebook/pbl-understanding-data-lab.ipynb"
+  },
+  "assets": [
+    "assets/pbl-understanding-data/analysis-design.json",
+    "assets/pbl-understanding-data/dataset-summary.csv",
+    "assets/pbl-understanding-data/heart-disease-four-site.csv",
+    "assets/pbl-understanding-data/packet-b-data-characteristics.csv",
+    "assets/pbl-understanding-data/packet-b-data-dictionary.csv",
+    "assets/pbl-understanding-data/packet-b-measurement-scale-cases.csv",
+    "assets/pbl-understanding-data/packet-b-method-map.csv",
+    "assets/pbl-understanding-data/packet-b-missingness-by-site.csv",
+    "assets/pbl-understanding-data/packet-b-missingness.png",
+    "assets/pbl-understanding-data/packet-b-quality-audit.csv",
+    "assets/pbl-understanding-data/packet-b-quality-evidence-boundaries.csv",
+    "assets/pbl-understanding-data/packet-b-structure-types.csv",
+    "assets/pbl-understanding-data/packet-b-target-by-site.csv",
+    "assets/pbl-understanding-data/packet-c-aggregation.csv",
+    "assets/pbl-understanding-data/packet-c-binary-similarity.csv",
+    "assets/pbl-understanding-data/packet-c-distance-concentration.csv",
+    "assets/pbl-understanding-data/packet-c-distance-sensitivity.png",
+    "assets/pbl-understanding-data/packet-c-feature-options.csv",
+    "assets/pbl-understanding-data/packet-c-information-measures.csv",
+    "assets/pbl-understanding-data/packet-c-metric-comparison.csv",
+    "assets/pbl-understanding-data/packet-c-mixed-similarity.csv",
+    "assets/pbl-understanding-data/packet-c-neighbor-ranking.csv",
+    "assets/pbl-understanding-data/packet-c-pca-loadings.csv",
+    "assets/pbl-understanding-data/packet-c-pca-summary.csv",
+    "assets/pbl-understanding-data/packet-c-pca.png",
+    "assets/pbl-understanding-data/packet-c-sampling-replicates.csv",
+    "assets/pbl-understanding-data/packet-c-sampling-sensitivity.png",
+    "assets/pbl-understanding-data/packet-c-transformation-summary.csv",
+    "assets/pbl-understanding-data/packet-c-transformations.png",
+    "assets/pbl-understanding-data/packet-c-vector-metrics.csv",
+    "assets/pbl-understanding-data/packet-d-boundary-checklist.csv",
+    "assets/pbl-understanding-data/packet-d-preprocessing-audit.csv",
+    "assets/pbl-understanding-data/packet-d-preprocessing-workflow.png",
+    "assets/pbl-understanding-data/packet-d-workflow-decision.csv"
+  ],
+  "boundary": "Teaching only; no clinical, patient-care, causal, or deployment claim.",
+  "core_question": "这些多源生物医学数据需要如何处理 才能合理用于机器学习 哪些发现要求修改或停止流程",
+  "problem_architecture": {
+    "overarching_problem": "研究团队获得四中心临床表格和高维图像特征数据，需要依据数据语义 结构 质量 相似性 抽样 变换和降维证据制定可审计的数据准备工作流，并在证据不足 泄漏或信息损失不可接受时修改或停止。",
+    "inquiry_question_ids": [
+      "Q1",
+      "Q2",
+      "Q3",
+      "Q4",
+      "Q5",
+      "Q6",
+      "Q7",
+      "Q8",
+      "Q9",
+      "Q10"
+    ]
+  },
+  "course_coverage": [
+    {
+      "objective_id": "LO1",
+      "inquiry_question_ids": [
+        "Q1"
+      ],
+      "analysis_ids": [
+        "A1"
+      ],
+      "worksheet_output": "变量审查表和方法选择理由",
+      "synthesis": "用于最终Data readiness plan中的主张 证据 推理 边界和停止条件"
+    },
+    {
+      "objective_id": "LO2",
+      "inquiry_question_ids": [
+        "Q2",
+        "Q3",
+        "Q9"
+      ],
+      "analysis_ids": [
+        "A2",
+        "A3",
+        "A9"
+      ],
+      "worksheet_output": "数据表示说明；计算与表示风险清单；降维决策及信息损失说明",
+      "synthesis": "用于最终Data readiness plan中的主张 证据 推理 边界和停止条件"
+    },
+    {
+      "objective_id": "LO3",
+      "inquiry_question_ids": [
+        "Q1",
+        "Q10"
+      ],
+      "analysis_ids": [
+        "A1",
+        "A10"
+      ],
+      "worksheet_output": "变量审查表和方法选择理由；最终 Data readiness plan",
+      "synthesis": "用于最终Data readiness plan中的主张 证据 推理 边界和停止条件"
+    },
+    {
+      "objective_id": "LO4",
+      "inquiry_question_ids": [
+        "Q4"
+      ],
+      "analysis_ids": [
+        "A4"
+      ],
+      "worksheet_output": "质量问题 后果 核查 处理矩阵",
+      "synthesis": "用于最终Data readiness plan中的主张 证据 推理 边界和停止条件"
+    },
+    {
+      "objective_id": "LO5",
+      "inquiry_question_ids": [
+        "Q8",
+        "Q10"
+      ],
+      "analysis_ids": [
+        "A8",
+        "A10"
+      ],
+      "worksheet_output": "无泄漏预处理流程；最终 Data readiness plan",
+      "synthesis": "用于最终Data readiness plan中的主张 证据 推理 边界和停止条件"
+    },
+    {
+      "objective_id": "LO6",
+      "inquiry_question_ids": [
+        "Q4",
+        "Q7",
+        "Q10"
+      ],
+      "analysis_ids": [
+        "A4",
+        "A7",
+        "A10"
+      ],
+      "worksheet_output": "质量问题 后果 核查 处理矩阵；抽样与聚合建议；最终 Data readiness plan",
+      "synthesis": "用于最终Data readiness plan中的主张 证据 推理 边界和停止条件"
+    },
+    {
+      "objective_id": "LO7",
+      "inquiry_question_ids": [
+        "Q5",
+        "Q6"
+      ],
+      "analysis_ids": [
+        "A5",
+        "A6"
+      ],
+      "worksheet_output": "度量选择备忘录；综合相似性规则及边界",
+      "synthesis": "用于最终Data readiness plan中的主张 证据 推理 边界和停止条件"
+    },
+    {
+      "objective_id": "LO8",
+      "inquiry_question_ids": [
+        "Q3",
+        "Q7",
+        "Q8",
+        "Q9"
+      ],
+      "analysis_ids": [
+        "A3",
+        "A7",
+        "A8",
+        "A9"
+      ],
+      "worksheet_output": "计算与表示风险清单；抽样与聚合建议；无泄漏预处理流程；降维决策及信息损失说明",
+      "synthesis": "用于最终Data readiness plan中的主张 证据 推理 边界和停止条件"
+    }
+  ],
+  "customized": true,
+  "course_brief": "data.md",
+  "source_deck": "chap2_data.pptx",
+  "analysis_design": "assets/pbl-understanding-data/analysis-design.json",
+  "build_script": "scripts/pbl-understanding-data-build.py"
+}
